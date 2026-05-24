@@ -1,4 +1,4 @@
-Here is a stronger, cleaner README version:
+
 
 ````markdown
 # Linux Character Driver
@@ -144,29 +144,5 @@ This is a beginner-level Linux character driver intended for learning how user-s
 
 The driver is not intended for production use. It is meant to demonstrate the basic Linux character driver flow.
 
-````
 
-One correction from your original: it should be:
-
-```bash
-cat /proc/devices
-````
-
-not:
-
-```bash
-cat /proc/device
-```
-
-And this should be:
-
-```bash
-ls -l /dev/simple_char_driver
-```
-
-not:
-
-```bash
-ls -l /devices/simple_char_driver
-```
 
