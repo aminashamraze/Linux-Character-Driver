@@ -1,0 +1,26 @@
+Basic driver questions
+What is a character device?
+What is the difference between a character device and block device?
+What are major and minor numbers?
+What does alloc_chrdev_region() do?
+Why do we call cdev_init() before cdev_add()?
+What is struct file_operations?
+What does .owner = THIS_MODULE do?
+What is the role of /dev?
+What is the role of /sys/class?
+Why does the driver show up in /proc/devices but not as /proc/simple_char?
+User/kernel questions
+Why not directly use memcpy() with user pointers?
+What does copy_from_user() return?
+What is char __user *?
+Why is write buffer const char __user *?
+What is -EFAULT?
+Why does read return ssize_t?
+Why does read return 0 at EOF?
+Debugging questions
+How do you view kernel logs?
+How do you check if a module is loaded?
+How do you load/unload a module?
+How do you check /dev node permissions?
+What does dmesg show?
+What is the difference between build errors and runtime kernel logs?
