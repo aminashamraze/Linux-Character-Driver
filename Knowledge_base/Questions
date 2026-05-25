@@ -1,5 +1,8 @@
 Basic driver questions
 What is a character device?
+Character Device: Data moves in the form of byte streams whereas in the block device, data moves in the form of fixed blocks of different sizes.
+Example Character devices: /dev/ttyUSB0, /dev/tty etc. Block devices: /dev/sda
+_____________________________________
 What is the difference between a character device and block device?
 What are major and minor numbers?
 What does alloc_chrdev_region() do?
