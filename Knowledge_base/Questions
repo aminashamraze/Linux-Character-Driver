@@ -21,14 +21,26 @@ What does .owner = THIS_MODULE do?
 To let kernel know which owner owns the operation. For example, if module is reading from user, kernel will not unload module because of this signature.
 ______________________________________
 What is the role of /dev?
+/dev is user-space interface to devices in kernel
+_____________________________________
 What is the role of /sys/class?
+user-space view of kernel space device/configuration/information
+_____________________________________
 Why does the driver show up in /proc/devices but not as /proc/simple_char?
 
 User/kernel questions
+
 Why not directly use memcpy() with user pointers?
+Because memcpy() is dangerous, copy_to_user is safer, user-space pointer is not trusted like a kernel space pointer.
+_________________________________________
 What does copy_from_user() return?
+returns 0, if no error. If not successful copy, return number of bytes that could not be copied.
+_________________________________________
 What is char __user *?
+pointer to a character buffer in user-space.
+________________________________________
 Why is write buffer const char __user *?
+
 What is -EFAULT?
 Why does read return ssize_t?
 Why does read return 0 at EOF?
