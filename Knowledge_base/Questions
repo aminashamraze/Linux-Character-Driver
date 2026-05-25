@@ -4,14 +4,26 @@ Character Device: Data moves in the form of byte streams whereas in the block de
 Example Character devices: /dev/ttyUSB0, /dev/tty etc. Block devices: /dev/sda
 _____________________________________
 What is the difference between a character device and block device?
+
 What are major and minor numbers?
 What does alloc_chrdev_region() do?
+alloc_chrdev_region(&dev_num, 0,1, DEVICE_NUMBER); mean kernel, give me 1 character device number starting at 0 and store it under DEVICE_NUMBER,
+then later you can say cdev_add(&simple_cdev, &dev_num, 1); add major number (dev_num) and 1 instance of minor to the simple_cdev.
+____________________________________
 Why do we call cdev_init() before cdev_add()?
+cdev_init(&simple_cdev, &simple_fops); means, add .release .open, .read and .write functions to simple_cdev and initialize it.
+It does not have any major/minor number until you deliberately add those using cdev_add().
+____________________________________
 What is struct file_operations?
+All operations that you want your character driver to support. Here, .open, .release, .read, and .write.
+____________________________________
 What does .owner = THIS_MODULE do?
+To let kernel know which owner owns the operation. For example, if module is reading from user, kernel will not unload module because of this signature.
+______________________________________
 What is the role of /dev?
 What is the role of /sys/class?
 Why does the driver show up in /proc/devices but not as /proc/simple_char?
+
 User/kernel questions
 Why not directly use memcpy() with user pointers?
 What does copy_from_user() return?
